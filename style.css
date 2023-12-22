@@ -1,0 +1,465 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fcb592;
+}
+
+input#open {
+    display: none;
+}
+
+.christmas-card {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    transform-style: preserve-3d;
+    transform: perspective(2500px);
+    transition: 3s;
+}
+
+.card-front {
+    position: relative;
+    background-color: #008bdd;
+    width: 200px;
+    height: 300px;
+    overflow: hidden;
+    transform-origin: left;
+    box-shadow: inset 100px 20px 100px rgba(0, 0, 0, .13), 30px 0 50px rgba(0, 0, 0, 0.1);
+    transition: .3s;
+}
+
+.card-front:before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 280px;
+    background-color: #ff3e33;
+    top: 10px;
+    left: 10px;
+}
+
+.christmas-tree {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-right: 50px solid transparent;
+    border-left: 50px solid transparent;
+    border-bottom: 160px solid #034247;
+    top: 75px;
+    left: 50px;
+}
+
+.christmas-tree:after {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 25px;
+    background-color: #c47f1a;
+    left: -50px;
+    top: 140px;
+}
+
+.christmas-tree:before {
+    content: "";
+    position: absolute;
+    background-color: #a86d16;
+    width: 50px;
+    height: 25px;
+    top: 130px;
+    left: 20px;
+    box-shadow: -90px 0 #a86d16;
+}
+
+.card-inside {
+    position: absolute;
+    background-color: #008bdd;
+    width: 200px;
+    height: 300px;
+    z-index: -1;
+    left: 0;
+    top: 0;
+    box-shadow: inset 100px 20px 100px rgba(0, 0, 0, 0.2);
+}
+
+.card-inside:before {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 280px;
+    background-color: #ff3e33;
+    top: 10px;
+    left: 10px;
+}
+
+.open {
+    position: absolute;
+    width: 200px;
+    height: 300px;
+    left: 0;
+    top: 0;
+    background-color: transparent;
+    z-index: 6;
+    cursor: pointer;
+}
+
+#open:checked ~ .card-front {
+    transform: rotateY(-155deg);
+    box-shadow: inset 100px 20px 100px rgba(0, 0, 0, .13), 30px 0 50px rgba(0, 0, 0, 0.1);
+}
+
+#open:checked ~ .card-front:before {
+    z-index: 5;
+}
+
+
+.text {
+    position: absolute;
+    color: white;
+    font-family: brush script mt;
+    top: 260px;
+    width: 200px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.text:before {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    content: "メリークリスマス!";
+    position: absolute;
+    width: 80px;
+    color: #333;
+    text-align: center;
+    line-height: 10px;
+    top: -42.5px;
+    left: 61px;
+    font-size: 15px;
+}
+
+.text:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-right: 7px solid transparent;
+    border-left: 7px solid transparent;
+    border-bottom: 20px solid #faa307;
+    top: -185px;
+    left: 93px;
+}
+
+.ribbon,
+.ribbon:before {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-bottom: 12.5px solid transparent;
+    border-top: 12.5px solid transparent;
+}
+
+.ribbon {
+    border-left: 10px solid #c94038;
+    top: 205px;
+    left: 30px;
+}
+
+.ribbon:before {
+    content: "";
+    border-right: 10px solid #c94038;
+    left: 120px;
+    top: -12.5px;
+}
+
+.ribbon:after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: white;
+    top: -25px;
+    left: 21.5px;
+    box-shadow: 5px -3px white, 10px -6px white, 15px -9px white, 20px -12px white, 25px -15px white, 30px -18px white, 35px -21px white, 40px -24px white, 45px -27px white, 50px -30px white, 55px -33px white, 60px -36px white, 60px -36px white, 15px -50px white, 20px -53px white, 25px -56px white, 30px -59px white, 35px -62px white, 40px -65px white, 45px -68px white, 50px -71px white;
+}
+
+.star {
+    position: absolute;
+    display: block;
+    width: 0px;
+    height: 0px;
+    border-right: 20px solid transparent;
+    border-bottom: 13px solid #ffba08;
+    border-left: 20px solid transparent;
+    transform: rotate(-35deg);
+    top: 68px;
+    left: 80px;
+}
+
+.star:before {
+    border-bottom: 13px solid #ffba08;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: -9px;
+    left: -11px;
+    display: block;
+    content: '';
+    transform: rotate(-35deg);
+}
+
+.star:after {
+    position: absolute;
+    display: block;
+    top: 0.75px;
+    left: -20px;
+    width: 0px;
+    height: 0px;
+    border-right: 20px solid transparent;
+    border-bottom: 13px solid #ffba08;
+    border-left: 20px solid transparent;
+    transform: rotate(-70deg);
+    content: '';
+}
+
+.balls {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #c94038;
+    top: 185px;
+    left: 110px;
+    box-shadow: -30px -30px #c94038, -18px -74px #c94038;
+}
+
+.balls:before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    widtH: 10px;
+    height: 10px;
+    background-color: #f6b4b8;
+    left: -20px;
+    top: 10px;
+    box-shadow: 15px -55px #f6b4b8;
+}
+
+.title {
+    position: absolute;
+    color: #e9e9e9;
+    font-size: 30px;
+    font-family: brush script mt;
+    line-height: 25px;
+    text-align: center;
+    top: 45px;
+    width: 200px;
+}
+
+.wishes {
+    position: absolute;
+    width: 150px;
+    text-align: center;
+    font-family: brush script mt;
+    line-height: 15px;
+    font-size: 20px;
+    color: #333;
+    height: 300px;
+    top: 36%;
+    left: 25px;
+}
+
+.wishes .japanese {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+}
+
+.gift {
+    position: absolute;
+    border: 3px solid #39c500;
+    width: 30px;
+    height: 30px;
+    top: 235px;
+    left: 83px;
+}
+
+.gift:before,
+.gift:after {
+    content: "";
+    position: absolute;
+    background-color: #f0dc20;
+}
+
+.gift:before {
+    width: 30px;
+    height: 3px;
+    top: 14px;
+}
+
+.gift:after {
+    height: 30px;
+    width: 3px;
+    left: 14px;
+}
+
+.bow {
+    position: absolute;
+}
+
+.bow:before,
+.bow:after {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border: 3px solid #ff65ed;
+    border-radius: 50%;
+    top: -14px;
+}
+
+.bow:before {
+    transform: skew(20deg, 10deg);
+    left: 2px;
+}
+
+.bow:after {
+    transform: skew(-20deg, -10deg);
+    left: 15px;
+}
+
+
+/* SNOWFALL */
+
+body {
+    height: 100vh;
+    background-image: linear-gradient(0deg, #fff 0%, #73bfdc 100%);
+  }
+
+  #snowfall {
+    position: absolute;
+    width: 100%;
+    height: 100px;
+  }
+
+  .snow {
+    position: absolute;
+    border-radius:50%;
+    filter: blur(1px);
+    background-color: #fff;
+    width: 10px;
+    height: 10px;
+    top:-1000px;
+    box-shadow: 20px 20px 1px #fff, 60px 40px 1px #fff, 160px 135px 1px #fff, 260px 240px 1px #fff, 360px 340px 1px #fff, 460px 440px 1px #fff, 560px 340px 1px #fff, 660px 240px 1px #fff, 760px 140px 1px #fff, 260px 640px 1px #fff, 160px 340px 1px #fff, 260px 440px 1px #fff, 760px 140px 1px #fff,860px 40px 1px #fff, 760px 140px 1px #fff, 1260px 120px 1px #fff, 1460px 10px 1px #fff,1560px 30px 1px #fff, 1590px 124px 1px #fff, 1680px 415px 1px #fff, 1720px 335px 1px #fff,1000px 212px 1px #fff, 990px 311px 1px #fff, 888px 122px 1px #fff, 765px 10px 1px #fff, 635px 15px 1px #fff, 554px 111px 1px #fff, 455px 222px 1px #fff, 125px 105px 1px #fff, 275px 96px 1px #fff, 245px 40px 1px #fff, 230px 70px 1px #fff, 285px 17px 1px #fff, 360px 340px 1px #fff, 360px 340px 1px #fff, 360px 340px 1px #fff, 430px 210px 1px #fff, 523px 23px 1px #fff, 1650px 335px 1px #fff, 1777px 123px 1px #fff, 1800px 222px 1px #fff, 1360px 140px 1px #fff;
+    animation: snowfall 7s linear infinite;
+  }
+
+  .snow:before {
+    content:"";
+    width:7px;
+    height:7px;
+    position: absolute;
+    background-color: #fff;
+    left: 200px;
+    top:-150px;
+    border-radius:50%;
+    box-shadow: 20px 20px 1px #fff, 60px 40px 1px #fff, 160px 135px 1px #fff, 260px 240px 1px #fff, 360px 340px 1px #fff, 460px 440px 1px #fff, 560px 340px 1px #fff, 660px 240px 1px #fff, 760px 140px 1px #fff, 260px 640px 1px #fff, 160px 340px 1px #fff, 260px 440px 1px #fff, 760px 140px 1px #fff,860px 40px 1px #fff, 760px 140px 1px #fff, 1260px 120px 1px #fff, 1460px 10px 1px #fff,1560px 30px 1px #fff, 1590px 124px 1px #fff, 1680px 415px 1px #fff, 1720px 335px 1px #fff,1000px 212px 1px #fff, 990px 311px 1px #fff, 888px 122px 1px #fff, 765px 10px 1px #fff, 635px 15px 1px #fff, 554px 111px 1px #fff, 455px 222px 1px #fff, 125px 105px 1px #fff, 275px 96px 1px #fff, 245px 40px 1px #fff, 230px 70px 1px #fff, 285px 17px 1px #fff, 360px 340px 1px #fff, 360px 340px 1px #fff, 360px 340px 1px #fff, 430px 210px 1px #fff, 523px 23px 1px #fff, 1650px 335px 1px #fff, 1777px 123px 1px #fff, 1800px 222px 1px #fff, 1360px 140px 1px #fff;
+
+  }
+
+  .snow:after {
+    content:"";
+    width:5px;
+    height:5px;
+    position: absolute;
+    background-color: #fff;
+    left: 300px;
+    top:-250px;
+    border-radius:50%;
+    filter: blur(1px);
+    box-shadow: 20px 20px 1px #fff, 60px 40px 1px #fff, 160px 135px 1px #fff, 260px 240px 1px #fff, 360px 340px 1px #fff, 460px 440px 1px #fff, 560px 340px 1px #fff, 660px 240px 1px #fff, 760px 140px 1px #fff, 260px 640px 1px #fff, 160px 340px 1px #fff, 260px 440px 1px #fff, 760px 140px 1px #fff,860px 40px 1px #fff, 760px 140px 1px #fff, 1260px 120px 1px #fff, 1460px 10px 1px #fff,1560px 30px 1px #fff, 1590px 124px 1px #fff, 1680px 415px 1px #fff, 1720px 335px 1px #fff,1000px 212px 1px #fff, 990px 311px 1px #fff, 888px 122px 1px #fff, 765px 10px 1px #fff, 635px 15px 1px #fff, 554px 111px 1px #fff, 455px 222px 1px #fff, 125px 105px 1px #fff, 275px 96px 1px #fff, 245px 40px 1px #fff, 230px 70px 1px #fff, 285px 17px 1px #fff, 360px 340px 1px #fff, 360px 340px 1px #fff, 360px 340px 1px #fff, 430px 210px 1px #fff, 523px 23px 1px #fff, 1650px 335px 1px #fff, 1777px 123px 1px #fff, 1800px 222px 1px #fff, 1360px 140px 1px #fff;
+  }
+  .snow1 {
+    position: absolute;
+    border-radius:50%;
+    filter: blur(2px);
+    background-color: #fff;
+    width: 9px;
+    height: 9px;
+    top:-850px;
+    left:123px;
+    box-shadow: 20px 20px 1px #fff, 60px 40px 1px #fff, 160px 135px 1px #fff, 260px 240px 1px #fff, 360px 340px 1px #fff, 460px 440px 1px #fff, 560px 340px 1px #fff, 660px 240px 1px #fff, 760px 140px 1px #fff, 260px 640px 1px #fff, 160px 340px 1px #fff, 260px 440px 1px #fff, 760px 140px 1px #fff,860px 40px 1px #fff, 760px 140px 1px #fff, 1260px 120px 1px #fff, 1460px 10px 1px #fff,1560px 30px 1px #fff, 1590px 124px 1px #fff, 1680px 415px 1px #fff, 1720px 335px 1px #fff,1000px 212px 1px #fff, 990px 311px 1px #fff, 888px 122px 1px #fff, 765px 10px 1px #fff, 635px 15px 1px #fff, 554px 111px 1px #fff, 455px 222px 1px #fff, 125px 105px 1px #fff, 275px 96px 1px #fff, 245px 40px 1px #fff, 230px 70px 1px #fff, 285px 17px 1px #fff, 360px 340px 1px #fff, 360px 340px 1px #fff, 360px 340px 1px #fff, 430px 210px 1px #fff, 523px 23px 1px #fff, 1650px 335px 1px #fff, 1777px 123px 1px #fff, 1800px 222px 1px #fff, 1360px 140px 1px #fff;
+    animation-delay:-3s;
+    animation: snowfall 9s linear infinite;
+  }
+
+  .snow1:before {
+    content:"";
+    width:7px;
+    height:7px;
+    position: absolute;
+    background-color: #fff;
+    left: 200px;
+    top:-350px;
+    border-radius:50%;
+    box-shadow: 20px 20px 1px #fff, 60px 40px 1px #fff, 160px 135px 1px #fff, 260px 240px 1px #fff, 360px 340px 1px #fff, 460px 440px 1px #fff, 560px 340px 1px #fff, 660px 240px 1px #fff, 760px 140px 1px #fff, 260px 640px 1px #fff, 160px 340px 1px #fff, 260px 440px 1px #fff, 760px 140px 1px #fff,860px 40px 1px #fff, 760px 140px 1px #fff, 1260px 120px 1px #fff, 1460px 10px 1px #fff,1560px 30px 1px #fff, 1590px 124px 1px #fff, 1680px 415px 1px #fff, 1720px 335px 1px #fff,1000px 212px 1px #fff, 990px 311px 1px #fff, 888px 122px 1px #fff, 765px 10px 1px #fff, 635px 15px 1px #fff, 554px 111px 1px #fff, 455px 222px 1px #fff, 125px 105px 1px #fff, 275px 96px 1px #fff, 245px 40px 1px #fff, 230px 70px 1px #fff, 285px 17px 1px #fff, 360px 340px 1px #fff, 360px 340px 1px #fff, 360px 340px 1px #fff, 430px 210px 1px #fff, 523px 23px 1px #fff, 1650px 335px 1px #fff, 1777px 123px 1px #fff, 1800px 222px 1px #fff, 1360px 140px 1px #fff;
+
+  }
+
+  .snow1:after {
+    content:"";
+    width:5px;
+    height:5px;
+    position: absolute;
+    background-color: #fff;
+    left: 300px;
+    top:-450px;
+    border-radius:50%;
+    filter: blur(1px);
+    box-shadow: 20px 20px 1px #fff, 60px 40px 1px #fff, 160px 135px 1px #fff, 260px 240px 1px #fff, 360px 340px 1px #fff, 460px 440px 1px #fff, 560px 340px 1px #fff, 660px 240px 1px #fff, 760px 140px 1px #fff, 260px 640px 1px #fff, 160px 340px 1px #fff, 260px 440px 1px #fff, 760px 140px 1px #fff,860px 40px 1px #fff, 760px 140px 1px #fff, 1260px 120px 1px #fff, 1460px 10px 1px #fff,1560px 30px 1px #fff, 1590px 124px 1px #fff, 1680px 415px 1px #fff, 1720px 335px 1px #fff,1000px 212px 1px #fff, 990px 311px 1px #fff, 888px 122px 1px #fff, 765px 10px 1px #fff, 635px 15px 1px #fff, 554px 111px 1px #fff, 455px 222px 1px #fff, 125px 105px 1px #fff, 275px 96px 1px #fff, 245px 40px 1px #fff, 230px 70px 1px #fff, 285px 17px 1px #fff, 360px 340px 1px #fff, 360px 340px 1px #fff, 360px 340px 1px #fff, 430px 210px 1px #fff, 523px 23px 1px #fff, 1650px 335px 1px #fff, 1777px 123px 1px #fff, 1800px 222px 1px #fff, 1360px 140px 1px #fff;
+  }
+
+  .snow2 {
+    position: absolute;
+    border-radius:50%;
+    filter: blur(1.5px);
+    background-color: #fff;
+    width: 9px;
+    height: 9px;
+    top:-900px;
+    left:-50px;
+    box-shadow: 20px 20px 1px #fff, 60px 40px 1px #fff, 160px 135px 1px #fff, 260px 240px 1px #fff, 360px 340px 1px #fff, 460px 440px 1px #fff, 560px 340px 1px #fff, 660px 240px 1px #fff, 760px 140px 1px #fff, 260px 640px 1px #fff, 160px 340px 1px #fff, 260px 440px 1px #fff, 760px 140px 1px #fff,860px 40px 1px #fff, 760px 140px 1px #fff, 1260px 120px 1px #fff, 1460px 10px 1px #fff,1560px 30px 1px #fff, 1590px 124px 1px #fff, 1680px 415px 1px #fff, 1720px 335px 1px #fff,1000px 212px 1px #fff, 990px 311px 1px #fff, 888px 122px 1px #fff, 765px 10px 1px #fff, 635px 15px 1px #fff, 554px 111px 1px #fff, 455px 222px 1px #fff, 125px 105px 1px #fff, 275px 96px 1px #fff, 245px 40px 1px #fff, 230px 70px 1px #fff, 285px 17px 1px #fff, 360px 340px 1px #fff, 360px 340px 1px #fff, 360px 340px 1px #fff, 430px 210px 1px #fff, 523px 23px 1px #fff, 1650px 335px 1px #fff, 1777px 123px 1px #fff, 1800px 222px 1px #fff, 1360px 140px 1px #fff;
+    animation-delay:-4s;
+    animation: snowfall 14s linear infinite;
+  }
+
+  .snow2:before {
+    content:"";
+    width:7px;
+    height:7px;
+    position: absolute;
+    background-color: #fff;
+    left: 200px;
+    top:-550px;
+    border-radius:50%;
+    box-shadow: 20px 20px 1px #fff, 60px 40px 1px #fff, 160px 135px 1px #fff, 260px 240px 1px #fff, 360px 340px 1px #fff, 460px 440px 1px #fff, 560px 340px 1px #fff, 660px 240px 1px #fff, 760px 140px 1px #fff, 260px 640px 1px #fff, 160px 340px 1px #fff, 260px 440px 1px #fff, 760px 140px 1px #fff,860px 40px 1px #fff, 760px 140px 1px #fff, 1260px 120px 1px #fff, 1460px 10px 1px #fff,1560px 30px 1px #fff, 1590px 124px 1px #fff, 1680px 415px 1px #fff, 1720px 335px 1px #fff,1000px 212px 1px #fff, 990px 311px 1px #fff, 888px 122px 1px #fff, 765px 10px 1px #fff, 635px 15px 1px #fff, 554px 111px 1px #fff, 455px 222px 1px #fff, 125px 105px 1px #fff, 275px 96px 1px #fff, 245px 40px 1px #fff, 230px 70px 1px #fff, 285px 17px 1px #fff, 360px 340px 1px #fff, 360px 340px 1px #fff, 360px 340px 1px #fff, 430px 210px 1px #fff, 523px 23px 1px #fff, 1650px 335px 1px #fff, 1777px 123px 1px #fff, 1800px 222px 1px #fff, 1360px 140px 1px #fff;
+
+  }
+
+  .snow2:after {
+    content:"";
+    width:5px;
+    height:5px;
+    position: absolute;
+    background-color: #fff;
+    left: 300px;
+    top:-650px;
+    border-radius:50%;
+    filter: blur(1px);
+    box-shadow: 20px 20px 1px #fff, 60px 40px 1px #fff, 160px 135px 1px #fff, 260px 240px 1px #fff, 360px 340px 1px #fff, 460px 440px 1px #fff, 560px 340px 1px #fff, 660px 240px 1px #fff, 760px 140px 1px #fff, 260px 640px 1px #fff, 160px 340px 1px #fff, 260px 440px 1px #fff, 760px 140px 1px #fff,860px 40px 1px #fff, 760px 140px 1px #fff, 1260px 120px 1px #fff, 1460px 10px 1px #fff,1560px 30px 1px #fff, 1590px 124px 1px #fff, 1680px 415px 1px #fff, 1720px 335px 1px #fff,1000px 212px 1px #fff, 990px 311px 1px #fff, 888px 122px 1px #fff, 765px 10px 1px #fff, 635px 15px 1px #fff, 554px 111px 1px #fff, 455px 222px 1px #fff, 125px 105px 1px #fff, 275px 96px 1px #fff, 245px 40px 1px #fff, 230px 70px 1px #fff, 285px 17px 1px #fff, 360px 340px 1px #fff, 360px 340px 1px #fff, 360px 340px 1px #fff, 430px 210px 1px #fff, 523px 23px 1px #fff, 1650px 335px 1px #fff, 1777px 123px 1px #fff, 1800px 222px 1px #fff, 1360px 140px 1px #fff;
+  }
+
+  @keyframes snowfall {
+      100% {transform: translateY(1500px);}
+  }
